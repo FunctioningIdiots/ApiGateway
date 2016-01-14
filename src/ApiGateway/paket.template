@@ -1,0 +1,23 @@
+type project
+owners
+    FunctioningIdiots
+authors 
+    FunctioningIdiots
+projectUrl
+    http://github.com/FunctioningIdiots/ApiGateway
+iconUrl
+    https://raw.githubusercontent.com/FunctioningIdiots/ApiGateway/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/FunctioningIdiots/ApiGateway/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    
+summary
+    An API Gateway
+description
+    Description not set
+
+
