@@ -1,9 +1,10 @@
 language: csharp
-
-sudo: false  # use the new container-based Travis infrastructure 
-
+solution: ApiGateway.sln
+sudo: false
 before_install:
-  - chmod +x build.sh
- 
-script: 
-  - ./build.sh All
+- chmod +x build.sh
+script:
+- "./build.sh All"
+notifications:
+  slack:
+    secure: 3DwBNyDjgp7wgn5WHcD5bVXLbLriHoahoHNG5HaQ9ORw29icBneDnDofarUyh5t5MsFBrt/joxHHAPZ1NJF1oeyNVHhFf3V5tJi9VUFSX/Y8+fHNpd4iXVUTRk8WxdhSCpIJ2bbRLg90yZbsP/+jAekQvZy7qvmfqjjjAtX/3wENvyzF84M970+Ls9c5VjOO1gDQQq/o7mQdnyca5aRAtqHg18vhXvEHTf5nEbLH3tK7OxkSelRraGVsWVvRGfMRu1ExGY9TbwJoF5i2GmNG0rBZFO03y2C4j3ZWgCiAO6dnNyTNh1jLmV6li2KxzZF7sAx7Ol1W28pIAdpgWT83EuH/+2g0aJDXrrb2kNbuhKP8mntSJuUfXstZXCs5iywRgCfF3mSkBZffMR45ujAe05fEZ+cw+2o0ykirz/LYIXX3A562HS+mid8FdRuV27YV9713q9kKbGABNA9p2D5/YCsbOd9C2B9eXrdiHnLuOtmN1XlZ3FL5Q6if3CqgmgZNJR6OhV3mO0YqEeTDlTaMnUMGmV4Yv3/2EMi6j5A+J75mHemO1bTqfXKubDJijrIL5pjF83wFRdm+W5/SIgzvQqZ3EXZlvUuzvqI7JoGG0rNLTqC6DSnQgRylwi0DTRMo4uDKEXS8MrihLGXnOqqIVzJArDWlhKemR4X2z4TbMn4=
