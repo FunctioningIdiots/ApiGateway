@@ -1,9 +1,7 @@
 language: csharp
-
-sudo: false  # use the new container-based Travis infrastructure 
-
+solution: ApiGateway.sln
+sudo: false
 before_install:
   - chmod +x build.sh
- 
-script: 
-  - ./build.sh All
+script:
+- ./build.sh All
