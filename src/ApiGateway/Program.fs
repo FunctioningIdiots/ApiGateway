@@ -6,7 +6,7 @@ open Suave.Filters
 open Suave.Successful
 open Suave.RequestErrors
 
-type service = { Name:string; Server:string; Port:uint16 }
+type Service = { Name:string; Server:string; Port:uint16 }
 
 let services = 
     [
@@ -15,17 +15,17 @@ let services =
         {Name="city"; Server="cityserver"; Port=8001us }
     ]
 
-let generateGetWebParts (service:service) : WebPart<'a> = 
+let generateWebParts (service:Service) : WebPart<HttpContext> =
     let createPathScanString = new PrintfFormat<_,_,_,_,_>(sprintf "/%s/%s" service.Name "%s")
     let url segment = 
         sprintf "http://%s:%u/%s" service.Server service.Port segment
-    GET >=> pathStarts (sprintf "/%s" service.Name) >=> pathScan createPathScanString (fun segment -> OK (url segment))
+    pathStarts (sprintf "/%s" service.Name) >=> pathScan createPathScanString (fun segment -> OK (url segment))
+
+let generateGetWebParts (service:Service) : WebPart<HttpContext> = 
+    GET >=> generateWebParts service
     
-let generatePostWebParts (service:service) : WebPart<'a> = 
-    let createPathScanString = new PrintfFormat<_,_,_,_,_>(sprintf "/%s/%s" service.Name "%s")
-    let url segment = 
-        sprintf "http://%s:%u/%s" service.Server service.Port segment
-    POST >=> pathStarts (sprintf "/%s" service.Name) >=> pathScan createPathScanString (fun segment -> OK (url segment))
+let generatePostWebParts (service:Service) : WebPart<HttpContext> = 
+    POST >=> generateWebParts service
 
 [<EntryPoint>]
 let main argv =     
